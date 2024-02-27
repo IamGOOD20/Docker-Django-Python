@@ -11,4 +11,4 @@ ENV APP_NAME=DOCKER_DEMO_CONFIG
 
 RUN pip install -r requirements.txt
 
-CMD qunicorn docker_demo.wsqi:applecation -b 0.0.0.0:8000
+CMD gunicorn docker_demo_config.wsqi:applecation -b 0.0.0.0:8000
