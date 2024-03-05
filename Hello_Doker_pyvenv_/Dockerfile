@@ -1,11 +1,5 @@
-#FROM python:3.10.13-slim-bookworm
-
-#WORKDIR / code
-
-#RUN pip install -r requirements.txt
-
 # Pull base image
-FROM python:3.10.13-slim-bookworm
+FROM python:3.12.2-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -15,9 +9,8 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 
 # Install dependencies
-#COPY Pipfile Pipfile.lock /code/
-RUN pip install -r requirements.txt
-#RUN pip install pipenv && pipenv install --system
+COPY Pipfile Pipfile.lock /code/
+RUN pip install pipenv && pipenv install --system
 
 # Copy project
 COPY . /code/
